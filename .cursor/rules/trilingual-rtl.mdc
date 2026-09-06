@@ -1,0 +1,23 @@
+---
+description: Native English, Arabic, and Kurdish with RTL/LTR switching
+alwaysApply: true
+---
+
+# Trilingual I18n and Direction
+
+Locales: `en` (LTR), `ar` (RTL), `ckb` (Kurdish Sorani, RTL). Set `<html lang>` and `dir` from the active locale.
+
+## Rules
+
+- All UI strings live in `messages/{locale}.json`. Never hardcode English in components.
+- Keep translation keys identical across locales. Kurdish uses Arabic script (کوردی).
+- Dates, numbers, and names use `Intl` with the active locale.
+- Use logical CSS and Tailwind logical utilities (`ms-`, `me-`, `ps-`, `pe-`, `start-`, `end-`).
+- Language switcher must preserve route, query, and user role. Do not reload to a blank home.
+- Forms, tables, and modals must remain usable in RTL (icons, chevrons, drawers flip).
+
+## Example
+
+```tsx
+<html lang={locale} dir={locale === "en" ? "ltr" : "rtl"}>
+```

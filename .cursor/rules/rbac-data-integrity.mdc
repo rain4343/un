@@ -1,0 +1,25 @@
+---
+description: RBAC, tenancy, and data integrity for kindergarten records
+alwaysApply: true
+---
+
+# RBAC and Data Integrity
+
+## Roles
+
+| Role | Scope |
+| UNICEF_ADMIN | All 20 sites, frameworks, users, aggregates |
+| COORDINATOR | Assigned cluster of kindergartens |
+| PRINCIPAL | One kindergarten: staff, enrollments, reports |
+| TEACHER | Assigned classes: attendance, observations |
+| STAFF | Limited operational tasks on one site |
+| PARENT | Own children only (read + consented updates) |
+| AUDITOR | Read-only cross-site, no PII export without reason |
+
+## Rules
+
+- Enforce role **and** `kindergartenId` on every query/mutation
+- Soft-delete child and enrollment records; keep immutable audit logs
+- Unique constraints for enrollment codes, staff IDs, and evaluation instrument versions
+- All writes record `actorId`, `at`, `action`, `entity`, `before`/`after` hashes
+- Fail closed: missing tenant scope returns 403, not an empty unscoped list

@@ -1,0 +1,23 @@
+---
+description: UNICEF evaluation frameworks for ECCE quality and child development
+alwaysApply: true
+---
+
+# UNICEF Evaluation Frameworks
+
+Instruments are versioned. Scores are never overwritten; recapture creates a new assessment.
+
+## Core instruments
+
+1. **ECDI2030** — child development (learning, health, psychosocial, motor)
+2. **ECCE quality** — pedagogy, play, inclusion, teacher–child interaction
+3. **Child-Friendly School (CFS)** — protection, participation, equity
+4. **WASH in Schools** — water, sanitation, hygiene, menstrual health where relevant
+5. **Safeguarding** — reporting pathways, staff vetting, incident workflow (restricted)
+
+## Rules
+
+- Rubrics and item text are translatable; numeric scores stay locale-invariant
+- Disaggregate reports by site, sex, disability, and displacement **only** when N is large enough to avoid identification
+- Kindergarten dashboards show framework coverage and overdue assessments
+- Do not invent UNICEF policy text; keep official wording in `content/frameworks/`
