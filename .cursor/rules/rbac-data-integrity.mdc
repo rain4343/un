@@ -1,25 +1,25 @@
 ---
-description: RBAC, tenancy, and data integrity for kindergarten records
+description: Four-role RBAC and tenant data integrity
 alwaysApply: true
 ---
 
 # RBAC and Data Integrity
 
-## Roles
+Only these roles exist. Do not add extra roles unless the product owner expands the matrix.
 
-| Role | Scope |
-| UNICEF_ADMIN | All 20 sites, frameworks, users, aggregates |
-| COORDINATOR | Assigned cluster of kindergartens |
-| PRINCIPAL | One kindergarten: staff, enrollments, reports |
-| TEACHER | Assigned classes: attendance, observations |
-| STAFF | Limited operational tasks on one site |
-| PARENT | Own children only (read + consented updates) |
-| AUDITOR | Read-only cross-site, no PII export without reason |
+| Role | Actor | Scope |
+| SUPER_ADMIN | UNICEF Country Office / senior programme managers | All 20 kindergartens: users, frameworks, aggregates, configuration |
+| KINDERGARTEN_MANAGER | Local director | One assigned facility: site data, staff, inventory |
+| FIELD_MONITOR | Field officer | Assigned sites: submit official evaluation forms and facility audits |
+| COUNCIL_MEMBER | Parents and Teachers Council | Own kindergarten: periodic council evaluation forms only |
+| DISTRICT_EDUCATION | District education plan (پلانی پەروەردەی قەزا) | Kindergartens whose `education_directorate_id` matches the user’s district: **read-only** (no writes, no form submit) |
 
-## Rules
+## Enforcement
 
-- Enforce role **and** `kindergartenId` on every query/mutation
-- Soft-delete child and enrollment records; keep immutable audit logs
-- Unique constraints for enrollment codes, staff IDs, and evaluation instrument versions
-- All writes record `actorId`, `at`, `action`, `entity`, `before`/`after` hashes
-- Fail closed: missing tenant scope returns 403, not an empty unscoped list
+- Server-side on every query/mutation. Hidden UI is not authorization.
+- `SUPER_ADMIN` may omit `kindergartenId`. Every other role **must** be scoped to assigned site(s); missing scope → 403.
+- `KINDERGARTEN_MANAGER` and `COUNCIL_MEMBER` bind to one `users.kindergarten_id`.
+- `FIELD_MONITOR` binds via `user_site_assignments` (one or many sites).
+- `DISTRICT_EDUCATION` binds to `users.education_directorate_id` and sees every kindergarten in that district; mutations fail closed.
+- Soft-delete child records. Immutable `audit_logs` on all writes.
+- Fail closed: never return an unscoped list when the actor is site-bound.

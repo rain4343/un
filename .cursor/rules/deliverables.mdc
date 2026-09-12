@@ -1,0 +1,15 @@
+---
+description: Required implementation deliverables for schema, API, UI, and reports
+alwaysApply: true
+---
+
+# Implementation Deliverables
+
+Keep these four layers complete and consistent.
+
+1. **Drizzle schema** — UUID PKs and FKs across users, kindergartens, Form 1/2 submissions, item responses, development-plan entries, and supply allocations.
+2. **REST API** — class-validator DTOs, multi-step section saves, server-side scoring, Nest i18n errors.
+3. **UI** — Tailwind + shadcn, 8-step forms, dynamic `en`/`ar`/`ckb` labels, `dir` from locale, logical CSS.
+4. **Reports** — Excel (`exceljs`) and PDF with UNICEF blue `#1CABE2`, Arabic/Kurdish-capable fonts when present.
+
+Do not compute official scores in the browser. The API is the source of truth.

@@ -1,23 +1,25 @@
 ---
-description: UNICEF evaluation frameworks for ECCE quality and child development
+description: UNICEF Form No. 1 and Form No. 2 with eight core sections
 alwaysApply: true
 ---
 
-# UNICEF Evaluation Frameworks
+# UNICEF Evaluation Forms
 
-Instruments are versioned. Scores are never overwritten; recapture creates a new assessment.
+Digitize **only** these official instruments. Item copy lives in `src/content/frameworks/`. Version instruments; never overwrite submitted scores.
 
-## Core instruments
+| Code | Document | Who submits |
+| FORM_1 | School/Kindergarten Evaluation Form (Form No. 1) | FIELD_MONITOR (official); COUNCIL_MEMBER (Parents & Teachers Council section only) |
+| FORM_2 | School Development Plan (Form No. 2) | FIELD_MONITOR; KINDERGARTEN_MANAGER for their site |
 
-1. **ECDI2030** — child development (learning, health, psychosocial, motor)
-2. **ECCE quality** — pedagogy, play, inclusion, teacher–child interaction
-3. **Child-Friendly School (CFS)** — protection, participation, equity
-4. **WASH in Schools** — water, sanitation, hygiene, menstrual health where relevant
-5. **Safeguarding** — reporting pathways, staff vetting, incident workflow (restricted)
+## Eight sections (both forms)
 
-## Rules
+1. Building (بالەخانە)
+2. Water & Sanitation (ئاو و ئاودەست)
+3. Canteen / Store (فروشگا / حانووت)
+4. Educational & Learning Environment (ژینگەی پەروەردە و فێرکردن)
+5. Teachers (مامۆستایان)
+6. School Administration (بەڕێوەبەرایەتی قوتابخانه)
+7. Curricula & Programs (پرۆگرامەکان)
+8. Parents & Teachers Council (ئنجومەنی دایباب و مامۆستایان)
 
-- Rubrics and item text are translatable; numeric scores stay locale-invariant
-- Disaggregate reports by site, sex, disability, and displacement **only** when N is large enough to avoid identification
-- Kindergarten dashboards show framework coverage and overdue assessments
-- Do not invent UNICEF policy text; keep official wording in `content/frameworks/`
+Form 1 scores each indicator (1–4 or NA). Form 2 turns gaps into timed, owned actions per section. Labels are trilingual; scores stay numeric.

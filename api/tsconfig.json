@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2022",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@db": ["../src/db/index.ts"],
+      "@db/*": ["../src/db/*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "../src/db/**/*.ts",
+    "../src/lib/rbac.ts",
+    "../src/lib/scoring.ts",
+    "../src/i18n/config.ts",
+    "../src/content/frameworks/**/*.ts"
+  ]
+}

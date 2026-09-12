@@ -1,0 +1,27 @@
+---
+description: Locked technology stack for the UNICEF kindergarten platform
+alwaysApply: true
+---
+
+# Technology Stack
+
+Do not substitute this stack without an explicit product decision.
+
+| Layer | Choice |
+| Frontend | Next.js App Router, React, TypeScript strict, Tailwind CSS, shadcn/ui |
+| Backend | NestJS (TypeScript). Shared contracts only; no business rules in the UI |
+| Data | PostgreSQL, Drizzle ORM, UUID primary keys, relational FKs, targeted indexes |
+| i18n | `next-intl` on the web app; NestJS i18n for validation and report strings |
+
+## Architecture
+
+- `src/` — Next.js UI (`[locale]` routes, server components, shadcn)
+- `api/` — NestJS HTTP API (auth, RBAC, domain modules)
+- `src/db/` — Drizzle schema and client used by the API (and server-only Next code)
+- Locales: `en`, `ar`, `ckb`. Translate UI, API validation errors, and reports
+
+## Type safety
+
+- `strict: true`. Domain types live next to the Drizzle schema
+- Validate writes with Zod or class-validator. Never trust query/body shapes
+- UUID PKs. Index tenant FKs (`kindergarten_id`), unique business codes, and audit `created_at`

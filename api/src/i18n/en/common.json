@@ -1,0 +1,13 @@
+{
+  "health": {
+    "ok": "API is healthy"
+  },
+  "errors": {
+    "required": "This field is required",
+    "unauthorized": "You do not have permission to view this resource",
+    "incompleteForm": "Complete every required section before submitting",
+    "invalidItem": "An indicator does not belong to this section",
+    "wrongForm": "This endpoint does not match the form type",
+    "unknownSite": "Kindergarten was not found"
+  }
+}

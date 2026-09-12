@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" role="img" aria-label="UNICEF">
+  <title>UNICEF</title>
+  <g fill="#1CABE2">
+    <circle cx="62" cy="70" r="54"/>
+  </g>
+  <g fill="none" stroke="#fff" stroke-width="2.2" opacity="0.95">
+    <ellipse cx="62" cy="70" rx="22" ry="52"/>
+    <ellipse cx="62" cy="70" rx="40" ry="52"/>
+    <path d="M12 70h100"/>
+    <path d="M18 42h88"/>
+    <path d="M18 98h88"/>
+  </g>
+  <g fill="#fff">
+    <circle cx="62" cy="58" r="9.5"/>
+    <path d="M48 112c2-22 10-34 24-34 8 0 14 4 18 11 8-6 16-6 22 2 4 6 3 16-1 24H48z"/>
+    <circle cx="86" cy="72" r="6.5"/>
+    <path d="M78 112c1-14 6-22 14-22 6 0 10 4 12 10v12H78z"/>
+  </g>
+  <text x="132" y="82" fill="#1CABE2" font-family="Arial Black, Helvetica, sans-serif" font-size="72" font-weight="800" letter-spacing="-2">unicef</text>
+</svg>
